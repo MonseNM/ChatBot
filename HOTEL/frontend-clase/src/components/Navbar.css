@@ -1,0 +1,134 @@
+/* Navbar.css */
+:root {
+  --primary: #0B3C5D;      /* Azul profundo */
+  --secondary: #316a91;    /* Dorado */
+  --light: #F8F9FA;        /* Blanco hueso */
+  --dark: #1D2731;         /* Negro profundo */
+  --accent: #328CC1;       /* Azul acento */
+  --gray: #E9ECEF;         /* Gris claro */
+  --text: #343A40;         /* Gris oscuro para texto */
+  --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+  --radius: 8px;
+}
+
+/* Estilos Generales */
+body {
+  font-family: 'Playfair Display', 'Montserrat', sans-serif;
+  color: var(--text);
+  line-height: 1.6;
+  background-color: var(--light);
+  margin: 0;
+}
+
+/* Navbar específico */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background-color: rgb(237, 240, 251);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-brand {
+  font-family: 'Playfair Display', serif;
+}
+
+.navbar-brand a {
+  color: var(--primary);
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: var(--transition);
+}
+
+.navbar-brand a:hover {
+  color: var(--secondary);
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  transition: var(--transition);
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--secondary);
+  transition: var(--transition);
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+.nav-link:hover::after {
+  width: 70%;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.username {
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.btn-logout {
+  background-color: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-logout:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .navbar-links {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .user-menu {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
